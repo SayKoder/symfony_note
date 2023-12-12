@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Accueil{% endblock %}
+
+{% block body %}
+<h1>Accueil !</h1>
+
+    <div>
+        {% for chaine in chaines %}
+            <div>{{ chaine.nom }}</div> <!-- Remplacer 'nom' par le nom de l'attribut approprié -->
+        {% else %}
+            <p>Aucune chaîne trouvée.</p>
+        {% endfor %}
+    </div>
+{% endblock %}

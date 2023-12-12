@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Chaine index{% endblock %}
+
+{% block body %}
+    <h1>Chaine index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Libelle_chaine</th>
+                <th>Diffuseur_chaine</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for chaine in chaines %}
+            <tr>
+                <td>{{ chaine.id }}</td>
+                <td>{{ chaine.libelleChaine }}</td>
+                <td>{{ chaine.diffuseurChaine }}</td>
+                <td>
+                    <a href="{{ path('app_chaine_show', {'id': chaine.id}) }}">show</a>
+                    <a href="{{ path('app_chaine_edit', {'id': chaine.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_chaine_new') }}">Create new</a>
+{% endblock %}
